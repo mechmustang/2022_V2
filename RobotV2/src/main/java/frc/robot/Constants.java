@@ -13,19 +13,31 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+   
    public final class chassis {
+      public final int leftLeadCanID = 1;
+      public final int rightLeadCanID = 2;
+      public final int leftFollowerCanID = 3;
+      public final int rightFollowerCanID = 4;
 
    }
 
    public final class shooter {
+      public final int graberCanID = 5;
+      public final int loaderCanID = 6;
+      public final int shooterCanID = 7;
 
    }
 
    public final class innerArms {
+      public final int lengthCanID = 8;
+      public final int angleCanID = 9;
 
    }
 
    public final class outerArms {
-      
+      public final int lengthCanID = 10;
+      public final int angleCanID = 11;
+
    }
 }
