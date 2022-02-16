@@ -15,29 +15,57 @@ package frc.robot;
 public final class Constants {
    
    public final class chassis {
-      public final int leftLeadCanID = 1;
-      public final int rightLeadCanID = 2;
-      public final int leftFollowerCanID = 3;
-      public final int rightFollowerCanID = 4;
+      public static final int leftLeadCanID = 1;
+      public static final int rightLeadCanID = 2;
+      public static final int leftFollowerCanID = 3;
+      public static final int rightFollowerCanID = 4;
 
    }
 
    public final class shooter {
-      public final int graberCanID = 5;
-      public final int loaderCanID = 6;
-      public final int shooterCanID = 7;
+      public static final int graberCanID = 5;
+      public static final int loaderCanID = 6;
+      public static final int shooterCanID = 7;
 
    }
 
    public final class innerArms {
-      public final int lengthCanID = 8;
-      public final int angleCanID = 9;
-
+      public static final int lengthCanID = 8; //SparkMAX motor controller
+      public static final int angleCanID = 9;  //SparkMAX motor controller
+      public static final double akP = 0.1; 
+      public static final double akI = 1e-4;
+      public static final double akD = 1;
+      public static final double akIz = 0;
+      public static final double akFF = 0;
+      public static final double akMaxOutput = 1; 
+      public static final double akMinOutput = -1;
+      public static final double lkP = 0.1; 
+      public static final double lkI = 1e-4;
+      public static final double lkD = 1;
+      public static final double lkIz = 0;
+      public static final double lkFF = 0;
+      public static final double lkMaxOutput = 1; 
+      public static final double lkMinOutput = -1;
+      
    }
 
    public final class outerArms {
-      public final int lengthCanID = 10;
-      public final int angleCanID = 11;
-
+      public static final int lengthCanID = 10;
+      public static final int angleCanID = 11;
+      public static final double akP = 0.1; 
+      public static final double akI = 1e-4;
+      public static final double akD = 1;
+      public static final double akIz = 0;
+      public static final double akFF = 0;
+      public static final double akMaxOutput = 1; 
+      public static final double akMinOutput = -1;
+      public static final double lkP = 0.1; 
+      public static final double lkI = 1e-4;
+      public static final double lkD = 1;
+      public static final double lkIz = 0;
+      public static final double lkFF = 0;
+      public static final double lkMaxOutput = 1; 
+      public static final double lkMinOutput = -1;
+      
    }
 }

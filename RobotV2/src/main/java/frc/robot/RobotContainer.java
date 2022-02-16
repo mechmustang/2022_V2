@@ -10,7 +10,8 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.chassis;
 import frc.robot.subsystems.arm;
 import frc.robot.subsystems.shooter;
-import frc.robot.Constants;
+import frc.robot.Constants.innerArms;
+import frc.robot.Constants.outerArms;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -23,11 +24,41 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   
   private final chassis m_chassis = new chassis();
-  private final arm m_innerArm = new arm(innerArms.lengthCanID, innerArms.angleCanID);
-  private final arm m_outerArm = new arm(outerArms.lengthCanID, outerArms.angleCanID);
+  private final arm m_innerArm = new arm(innerArms.lengthCanID, 
+                                         innerArms.angleCanID,
+                                         innerArms.akP,
+                                         innerArms.akI,
+                                         innerArms.akD,
+                                         innerArms.akIz,
+                                         innerArms.akFF,
+                                         innerArms.akMaxOutput,
+                                         innerArms.akMinOutput,
+                                         innerArms.lkP,
+                                         innerArms.lkI,
+                                         innerArms.lkD,
+                                         innerArms.lkIz,
+                                         innerArms.lkFF,
+                                         innerArms.lkMaxOutput,
+                                         innerArms.lkMinOutput);
+  private final arm m_outerArm = new arm(outerArms.lengthCanID, 
+                                         outerArms.angleCanID,
+                                         outerArms.akP,
+                                         outerArms.akI,
+                                         outerArms.akD,
+                                         outerArms.akIz,
+                                         outerArms.akFF,
+                                         outerArms.akMaxOutput,
+                                         outerArms.akMinOutput,
+                                         outerArms.lkP,
+                                         outerArms.lkI,
+                                         outerArms.lkD,
+                                         outerArms.lkIz,
+                                         outerArms.lkFF,
+                                         outerArms.lkMaxOutput,
+                                         outerArms.lkMinOutput);
   private final shooter m_shooter = new shooter();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final ExampleCommand m_autoCommand = new ExampleCommand(m_chassis);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
