@@ -14,19 +14,22 @@ package frc.robot;
  */
 public final class Constants {
    
-   public final class chassis {
+   public final class k_chassis {
       public static final int leftLeadCanID = 1;
       public static final int rightLeadCanID = 2;
       public static final int leftFollowerCanID = 3;
       public static final int rightFollowerCanID = 4;
 
+      public static final boolean leftMotorsInverted = false;
+      public static final boolean rightMotorsInverted = false;
+
+      public static final int kDriveControlStick = 0;
    }
 
    public final class shooter {
       public static final int graberCanID = 5;
       public static final int loaderCanID = 6;
       public static final int shooterCanID = 7;
-
    }
 
    public final class innerArms {
@@ -46,7 +49,11 @@ public final class Constants {
       public static final double lkFF = 0;
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
-      
+
+      public static final boolean lEncoderReversed = false;
+      public static final boolean lMotorReversed = false;
+      public static final boolean aEncoderReversed = false;
+      public static final boolean aMotorReversed = false;
    }
 
    public final class outerArms {
@@ -67,5 +74,9 @@ public final class Constants {
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
       
+      public static final boolean lEncoderReversed = false;
+      public static final boolean lMotorReversed = false;
+      public static final boolean aEncoderReversed = false;
+      public static final boolean aMotorReversed = false;
    }
 }

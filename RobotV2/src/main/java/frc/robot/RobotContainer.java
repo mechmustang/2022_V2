@@ -7,12 +7,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.chassis;
+import frc.robot.subsystems.drive;
 import frc.robot.subsystems.arm;
 import frc.robot.subsystems.shooter;
-import frc.robot.Constants.innerArms;
-import frc.robot.Constants.outerArms;
+import frc.robot.Constants.*;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -23,7 +23,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   
-  private final chassis m_chassis = new chassis();
+  public Joystick driveController = new Joystick(k_chassis.kDriveControlStick);
+  private final drive m_chassis = new drive();
   private final arm m_innerArm = new arm(innerArms.lengthCanID, 
                                          innerArms.angleCanID,
                                          innerArms.akP,
@@ -39,7 +40,11 @@ public class RobotContainer {
                                          innerArms.lkIz,
                                          innerArms.lkFF,
                                          innerArms.lkMaxOutput,
-                                         innerArms.lkMinOutput);
+                                         innerArms.lkMinOutput,
+                                         innerArms.aMotorReversed,
+                                         innerArms.aEncoderReversed,
+                                         innerArms.lMotorReversed,
+                                         innerArms.lEncoderReversed);
   private final arm m_outerArm = new arm(outerArms.lengthCanID, 
                                          outerArms.angleCanID,
                                          outerArms.akP,
@@ -55,7 +60,11 @@ public class RobotContainer {
                                          outerArms.lkIz,
                                          outerArms.lkFF,
                                          outerArms.lkMaxOutput,
-                                         outerArms.lkMinOutput);
+                                         outerArms.lkMinOutput,
+                                         outerArms.aMotorReversed,
+                                         outerArms.aEncoderReversed,
+                                         outerArms.lMotorReversed,
+                                         outerArms.lEncoderReversed);
   private final shooter m_shooter = new shooter();
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_chassis);

@@ -36,6 +36,11 @@ public class arm extends SubsystemBase {
   public RelativeEncoder lengthEncoder;
   public RelativeEncoder angleEncoder;
 
+  public boolean aMotorReversed;
+  public boolean aEncoderReversed;
+  public boolean lMotorReversed;
+  public boolean lEncoderReversed;
+
   public arm(int CanIDLength, 
              int CanIDAngle,
              double akP, 
@@ -51,7 +56,11 @@ public class arm extends SubsystemBase {
              double lkIz,
              double lkFF,
              double lkMaxOutput, 
-             double lkMinOutput) {
+             double lkMinOutput,
+             boolean aMotorReversed,
+             boolean aEncoderReversed,
+             boolean lMotorReversed,
+             boolean lEncoderReversed) {
     this.CanIDLength = CanIDLength;
     this.CanIDAngle = CanIDAngle;
     this.akP = akP;
@@ -68,12 +77,22 @@ public class arm extends SubsystemBase {
     this.lkFF = lkFF;
     this.lkMaxOutput = lkMaxOutput; 
     this.lkMinOutput = lkMinOutput;
+    this.aMotorReversed = aMotorReversed;
+    this.aEncoderReversed = aEncoderReversed;
+    this.lMotorReversed = lMotorReversed;
+    this.lEncoderReversed = lEncoderReversed;
 
     lengthMotor = new CANSparkMax(this.CanIDLength, MotorType.kBrushless);
     angleMotor = new CANSparkMax(this.CanIDAngle, MotorType.kBrushless);
 
     lengthMotor.restoreFactoryDefaults();
     angleMotor.restoreFactoryDefaults();
+
+    lengthMotor.setInverted(lMotorReversed);
+    angleMotor.setInverted(aMotorReversed);
+
+    lengthEncoder.setInverted(lEncoderReversed);
+    angleEncoder.setInverted(aEncoderReversed);
 
     lengthPID = lengthMotor.getPIDController();
     anglePID = angleMotor.getPIDController();
