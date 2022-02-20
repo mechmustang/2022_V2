@@ -8,8 +8,6 @@ package frc.robot.subsystems;
 //import edu.wpi.first.wpilibj.AnalogGyro;
 //import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
-//import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-//import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 //import com.ctre.phoenix.motorcontrol.ControlMode;
 //import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 //import com.ctre.phoenix.motorcontrol.Faults;
