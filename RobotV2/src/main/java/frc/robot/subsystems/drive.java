@@ -21,19 +21,29 @@ import frc.robot.Constants.*;
 
 public class drive extends SubsystemBase {
   /** Creates a new chassis. */
-  public final WPI_TalonSRX leftLeader = new WPI_TalonSRX(k_chassis.leftLeadCanID);
-  public final WPI_TalonSRX rightLeader = new WPI_TalonSRX(k_chassis.rightLeadCanID);
-  public final WPI_TalonSRX leftFollower = new WPI_TalonSRX(k_chassis.leftFollowerCanID);
-  public final WPI_TalonSRX rightFollower = new WPI_TalonSRX(k_chassis.rightFollowerCanID);
+  public final WPI_TalonSRX leftLeader;
+  public final WPI_TalonSRX rightLeader;
+  public final WPI_TalonSRX leftFollower;
+  public final WPI_TalonSRX rightFollower;
 
-  public final DifferentialDrive drive = new DifferentialDrive(leftLeader, rightLeader); 
+  public final DifferentialDrive drive; 
 
-  public final Encoder leftEncoder = new Encoder(0, 1);
-  public final Encoder rightEncoder = new Encoder(2, 3);
+  public final Encoder leftEncoder;
+  public final Encoder rightEncoder;
 
   //public final AnalogGyro gyroscope = new AnalogGyro();
 
   public drive() {
+    leftLeader = new WPI_TalonSRX(k_chassis.leftLeadCanID);
+    rightLeader = new WPI_TalonSRX(k_chassis.rightLeadCanID);
+    leftFollower = new WPI_TalonSRX(k_chassis.leftFollowerCanID);
+    rightFollower = new WPI_TalonSRX(k_chassis.rightFollowerCanID);
+
+    drive = new DifferentialDrive(leftLeader, rightLeader); 
+
+    leftEncoder = new Encoder(0, 1);
+    rightEncoder = new Encoder(2, 3);
+
     leftFollower.follow(leftLeader);
     rightFollower.follow(rightLeader);
 
