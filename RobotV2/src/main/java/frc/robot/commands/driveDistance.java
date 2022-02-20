@@ -4,40 +4,43 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.drive;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.drive;
 
-/** An example command that uses an example subsystem. */
-public class ExampleCommand extends CommandBase {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final drive m_subsystem;
+public class driveDistance extends CommandBase {
+  /** Creates a new driveDistance. */
+  public double m_distance;
+  public final drive m_chassis = new drive();
 
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
-  public ExampleCommand(drive subsystem) {
-    m_subsystem = subsystem;
+  public driveDistance(double distance) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    m_distance = distance;
+    addRequirements(m_chassis);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_chassis.halt();
+    m_chassis.resetEncoders();
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_chassis.driveStraight(0.6);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_chassis.halt();
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return (m_chassis.getDistance() >= m_distance);
   }
 }

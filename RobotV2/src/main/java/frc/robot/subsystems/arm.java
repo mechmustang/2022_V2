@@ -85,8 +85,8 @@ public class arm extends SubsystemBase {
     lengthMotor = new CANSparkMax(this.CanIDLength, MotorType.kBrushless);
     angleMotor = new CANSparkMax(this.CanIDAngle, MotorType.kBrushless);
 
-    lengthMotor.restoreFactoryDefaults();
-    angleMotor.restoreFactoryDefaults();
+    //lengthMotor.restoreFactoryDefaults();
+    //angleMotor.restoreFactoryDefaults();
 
     lengthMotor.setInverted(lMotorReversed);
     angleMotor.setInverted(aMotorReversed);
