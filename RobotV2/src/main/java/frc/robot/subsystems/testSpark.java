@@ -48,6 +48,7 @@ public class testSpark extends SubsystemBase {
 
   public void setPosition(double rev) {
     testPID.setReference(rev, CANSparkMax.ControlType.kPosition);
+
   }
 
   @Override
