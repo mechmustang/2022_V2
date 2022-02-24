@@ -15,10 +15,10 @@ package frc.robot;
 public final class Constants {
    
    public final class k_chassis {
-      public static final int leftLeadCanID = 1;
-      public static final int rightLeadCanID = 2;
-      public static final int leftFollowerCanID = 3;
-      public static final int rightFollowerCanID = 4;
+      public static final int leftLeadCanID = 5;
+      public static final int rightLeadCanID = 7;
+      public static final int leftFollowerCanID = 4;
+      public static final int rightFollowerCanID = 6;
 
       public static final boolean leftMotorsInverted = false;
       public static final boolean rightMotorsInverted = false;
@@ -31,8 +31,8 @@ public final class Constants {
    }
 
    public final class k_shooter {
-      public static final int graberCanID = 5;        //Talon SRX
-      public static final int loaderCanID = 6;        //Talon SRX
+      public static final int graberCanID = 2;        //Talon SRX
+      public static final int loaderCanID = 1;        //Talon SRX
       public static final int shooterFrontCanID = 7;  //Spark MAX
       public static final int shooterBackCanID = 12;  //Spark MAX
 
