@@ -33,8 +33,8 @@ public final class Constants {
    public final class k_shooter {
       public static final int graberCanID = 2;        //Talon SRX
       public static final int loaderCanID = 1;        //Talon SRX
-      public static final int shooterFrontCanID = 7;  //Spark MAX
-      public static final int shooterBackCanID = 12;  //Spark MAX
+      public static final int shooterFrontCanID = 9;  //Spark MAX
+      public static final int shooterBackCanID = 8;  //Spark MAX
 
       public static final boolean frontMotorInverted = false;
       public static final boolean backMotorInverted = false;
@@ -64,8 +64,8 @@ public final class Constants {
    }
 
    public final class innerArms {
-      public static final int lengthCanID = 8; //SparkMAX motor controller
-      public static final int angleCanID = 9;  //SparkMAX motor controller
+      public static final int lengthCanID = 10; //SparkMAX motor controller
+      public static final int angleCanID = 12;  //SparkMAX motor controller
       public static final double akP = 0.0001; 
       public static final double akI = 0;
       public static final double akD = 0.000001;
@@ -88,7 +88,7 @@ public final class Constants {
    }
 
    public final class outerArms {
-      public static final int lengthCanID = 10;
+      public static final int lengthCanID = 3;
       public static final int angleCanID = 11;
       public static final double akP = 0.0001; 
       public static final double akI = 0;
