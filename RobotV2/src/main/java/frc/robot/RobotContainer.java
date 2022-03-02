@@ -7,7 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
-import frc.robot.commands.driveDistance;
+import frc.robot.commands.driveStraight;
 import frc.robot.subsystems.drive;
 import frc.robot.subsystems.arm;
 import frc.robot.subsystems.shooter;
@@ -49,9 +49,7 @@ public class RobotContainer {
                                          innerArms.lkMaxOutput,
                                          innerArms.lkMinOutput,
                                          innerArms.aMotorReversed,
-                                         innerArms.aEncoderReversed,
-                                         innerArms.lMotorReversed,
-                                         innerArms.lEncoderReversed);
+                                         innerArms.lMotorReversed);
   private final arm m_outerArm = new arm(outerArms.lengthCanID, 
                                          outerArms.angleCanID,
                                          outerArms.akP,
@@ -69,12 +67,10 @@ public class RobotContainer {
                                          outerArms.lkMaxOutput,
                                          outerArms.lkMinOutput,
                                          outerArms.aMotorReversed,
-                                         outerArms.aEncoderReversed,
-                                         outerArms.lMotorReversed,
-                                         outerArms.lEncoderReversed);
+                                         outerArms.lMotorReversed);
   
 
-  private final driveDistance m_autoCommand = new driveDistance(5);
+  private final driveStraight m_autoCommand = new driveStraight();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

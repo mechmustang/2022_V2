@@ -26,8 +26,8 @@ public class drive extends SubsystemBase {
 
   public final DifferentialDrive drive; 
 
-  public final Encoder leftEncoder;
-  public final Encoder rightEncoder;
+  //public final Encoder leftEncoder;
+  //public final Encoder rightEncoder;
 
   //public final AnalogGyro gyroscope = new AnalogGyro();
 
@@ -39,8 +39,8 @@ public class drive extends SubsystemBase {
 
     drive = new DifferentialDrive(leftLeader, rightLeader); 
 
-    leftEncoder = new Encoder(0, 1);
-    rightEncoder = new Encoder(2, 3);
+    //leftEncoder = new Encoder(0, 1);
+    //rightEncoder = new Encoder(2, 3);
 
     leftFollower.follow(leftLeader);
     rightFollower.follow(rightLeader);
@@ -50,11 +50,11 @@ public class drive extends SubsystemBase {
     leftFollower.setInverted(InvertType.FollowMaster);
     rightFollower.setInverted(InvertType.FollowMaster);
 
-    leftEncoder.setReverseDirection(k_chassis.leftEncoderInverted);
-    rightEncoder.setReverseDirection(k_chassis.rightEncoderInverted);
+    //leftEncoder.setReverseDirection(k_chassis.leftEncoderInverted);
+    //rightEncoder.setReverseDirection(k_chassis.rightEncoderInverted);
 
-    leftEncoder.setDistancePerPulse(6 * Math.PI / 1440);
-    rightEncoder.setDistancePerPulse(6 * Math.PI / 1440);
+    //leftEncoder.setDistancePerPulse(6 * Math.PI / 1440);
+    //rightEncoder.setDistancePerPulse(6 * Math.PI / 1440);
 
   }
 
@@ -79,14 +79,6 @@ public class drive extends SubsystemBase {
 
   }
 
-  public void resetEncoders() {
-    leftEncoder.reset();
-    rightEncoder.reset();
-  }
-
-  public double getDistance() {
-    return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2.0;
-  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

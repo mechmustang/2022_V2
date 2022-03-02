@@ -39,9 +39,6 @@ public class shooter extends SubsystemBase {
 
     frontEncoder = shooterFront.getEncoder();
     backEncoder = shooterBack.getEncoder();
-
-    frontEncoder.setInverted(k_shooter.frontEncoderInverted);
-    backEncoder.setInverted(k_shooter.backEncoderInverted);
     
     frontPID.setP(k_shooter.kPfront);
     frontPID.setI(k_shooter.kIfront);

@@ -38,8 +38,6 @@ public final class Constants {
 
       public static final boolean frontMotorInverted = false;
       public static final boolean backMotorInverted = false;
-      public static final boolean backEncoderInverted = false;
-      public static final boolean frontEncoderInverted = false;
       
       public static final double kPfront = 0.0001;
       public static final double kIfront = 0;
@@ -81,9 +79,7 @@ public final class Constants {
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
-      public static final boolean lEncoderReversed = false;
       public static final boolean lMotorReversed = false;
-      public static final boolean aEncoderReversed = false;
       public static final boolean aMotorReversed = false;
    }
 
@@ -104,10 +100,8 @@ public final class Constants {
       public static final double lkFF = 0.0001;
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
-      
-      public static final boolean lEncoderReversed = false;
+
       public static final boolean lMotorReversed = false;
-      public static final boolean aEncoderReversed = false;
       public static final boolean aMotorReversed = false;
    }
 }
