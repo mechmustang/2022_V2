@@ -21,7 +21,7 @@ public final class Constants {
       public static final int rightFollowerCanID = 6;
 
       public static final boolean leftMotorsInverted = false;
-      public static final boolean rightMotorsInverted = false;
+      public static final boolean rightMotorsInverted = true;
 
       public static final boolean leftEncoderInverted = false;
       public static final boolean rightEncoderInverted = false;

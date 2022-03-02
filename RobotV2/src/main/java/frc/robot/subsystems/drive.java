@@ -17,6 +17,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.*;
 
+// **** Something needs to happen with motor safety ****
+
 public class drive extends SubsystemBase {
   /** Creates a new chassis. */
   public final WPI_TalonSRX leftLeader;
@@ -59,7 +61,7 @@ public class drive extends SubsystemBase {
   }
 
   public void arcadeDrive(double speed, double rot) {
-    drive.arcadeDrive(speed, rot);
+    drive.arcadeDrive(-speed, rot);
 
   }
 
