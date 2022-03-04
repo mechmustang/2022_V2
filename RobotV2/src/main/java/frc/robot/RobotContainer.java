@@ -12,6 +12,7 @@ import frc.robot.Constants.*;
 import frc.robot.commands.runGrabber;
 import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
+import frc.robot.commands.shutDownShooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -55,10 +56,12 @@ public class RobotContainer {
     final JoystickButton xBoxA = new JoystickButton(m_systemController, 1);
     final JoystickButton xBoxB = new JoystickButton(m_systemController, 2);
     final JoystickButton xBoxX = new JoystickButton(m_systemController, 3);
+    final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
 
     xBoxA.whenPressed(new runGrabber());
     xBoxB.whenPressed(new runLoader());
     xBoxX.whenPressed(new runShooter());
+    xBoxY.whenPressed(new shutDownShooter());
 
   }
 

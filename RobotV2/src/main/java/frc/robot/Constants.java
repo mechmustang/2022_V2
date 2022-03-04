@@ -39,26 +39,26 @@ public final class Constants {
       public static final boolean frontMotorInverted = false;
       public static final boolean backMotorInverted = false;
       
-      public static final double kPfront = 0.0001;
+      public static final double kPfront = 0.00018;
       public static final double kIfront = 0;
-      public static final double kDfront = 0.00001;
+      public static final double kDfront = 0;
       public static final double kIzfront = 0;
-      public static final double kFFfront = 0.0002;
+      public static final double kFFfront = 0.0028;
       public static final double kMinOutputFront = -1;
       public static final double kMaxOutputFront = 1;
       
-      public static final double kPback = 0.0001;
+      public static final double kPback = 0.00018;
       public static final double kIback = 0;
-      public static final double kDback = 0.00001;
+      public static final double kDback = 0;
       public static final double kIzback = 0;
-      public static final double kFFback = 0.00002;
+      public static final double kFFback = 0.0028;
       public static final double kMinOutputBack = -1;
       public static final double kMaxOutputBack = 1;
 
       public static final double grabberSpeed = -0.5;   // Victor SPX voltage as a percentage
       public static final double loaderSpeed = -0.4;    // Victor SPX voltage as a percentage
-      public static final double frontShooterSpeedRPM = 1000;   // Spark MAX speed in RPM
-      public static final double backShooterSpeedRPM = 1000;
+      public static final double frontShooterSpeedRPM = 500;   // Spark MAX speed in RPM
+      public static final double backShooterSpeedRPM = 500;
    
    }
 
