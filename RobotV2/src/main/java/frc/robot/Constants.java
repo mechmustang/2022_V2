@@ -31,8 +31,8 @@ public final class Constants {
    }
 
    public final class k_shooter {
-      public static final int graberCanID = 2;        //Talon SRX
-      public static final int loaderCanID = 1;        //Talon SRX
+      public static final int graberCanID = 2;        //Victor SPX
+      public static final int loaderCanID = 1;        //Victor SPX
       public static final int shooterFrontCanID = 9;  //Spark MAX
       public static final int shooterBackCanID = 8;  //Spark MAX
 
@@ -55,13 +55,14 @@ public final class Constants {
       public static final double kMinOutputBack = -1;
       public static final double kMaxOutputBack = 1;
 
-      public static final double grabberSpeed = 0.5;   //Talon SRX voltage as a percentage
-      public static final double loaderSpeed = 0.5;    //Talon SRX voltage as a percentage
-      public static final double shooterSpeed = 1000;  //Spark MAX speed in RPM
+      public static final double grabberSpeed = -0.5;   // Victor SPX voltage as a percentage
+      public static final double loaderSpeed = -0.4;    // Victor SPX voltage as a percentage
+      public static final double frontShooterSpeedRPM = 1000;   // Spark MAX speed in RPM
+      public static final double backShooterSpeedRPM = 1000;
    
    }
 
-   public final class innerArms {
+   public final class k_innerArms {
       public static final int lengthCanID = 10; //SparkMAX motor controller
       public static final int angleCanID = 12;  //SparkMAX motor controller
       public static final double akP = 0.0001; 
@@ -83,7 +84,7 @@ public final class Constants {
       public static final boolean aMotorReversed = false;
    }
 
-   public final class outerArms {
+   public final class k_outerArms {
       public static final int lengthCanID = 3;
       public static final int angleCanID = 11;
       public static final double akP = 0.0001; 

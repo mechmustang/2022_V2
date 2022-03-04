@@ -7,7 +7,7 @@ package frc.robot.subsystems;
 //import frc.robot.Robot;
 //import edu.wpi.first.wpilibj.AnalogGyro;
 //import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.Encoder;
+//import edu.wpi.first.wpilibj.Encoder;
 //import com.ctre.phoenix.motorcontrol.ControlMode;
 //import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 //import com.ctre.phoenix.motorcontrol.Faults;
@@ -21,12 +21,12 @@ import frc.robot.Constants.*;
 
 public class drive extends SubsystemBase {
   /** Creates a new chassis. */
-  public final WPI_TalonSRX leftLeader;
-  public final WPI_TalonSRX rightLeader;
-  public final WPI_TalonSRX leftFollower;
-  public final WPI_TalonSRX rightFollower;
+  private final WPI_TalonSRX leftLeader;
+  private final WPI_TalonSRX rightLeader;
+  private final WPI_TalonSRX leftFollower;
+  private final WPI_TalonSRX rightFollower;
 
-  public final DifferentialDrive drive; 
+  private final DifferentialDrive drive; 
 
   //public final Encoder leftEncoder;
   //public final Encoder rightEncoder;
