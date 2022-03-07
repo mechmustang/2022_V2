@@ -17,15 +17,15 @@ public class shooter extends SubsystemBase {
   private final CANSparkMax m_shooterBack;
   private final SparkMaxPIDController m_frontPID;
   private final SparkMaxPIDController m_backPID;
-  public RelativeEncoder m_frontEncoder;
-  public RelativeEncoder m_backEncoder;
+  private final RelativeEncoder m_frontEncoder;
+  private final RelativeEncoder m_backEncoder;
 
 
   /** Creates a new shooter. */
   public shooter() {
 
     m_shooterFront = new CANSparkMax(k_shooter.shooterFrontCanID, MotorType.kBrushless);
-    m_shooterBack = new CANSparkMax(k_shooter.shooterBackCanID,MotorType.kBrushless);
+    m_shooterBack = new CANSparkMax(k_shooter.shooterBackCanID, MotorType.kBrushless);
 
     m_shooterFront.setInverted(k_shooter.frontMotorInverted);
     m_shooterBack.setInverted(k_shooter.backMotorInverted);
@@ -56,6 +56,11 @@ public class shooter extends SubsystemBase {
     m_frontPID.setReference(k_shooter.frontShooterSpeedRPM, ControlType.kSmartVelocity);
     m_backPID.setReference(k_shooter.backShooterSpeedRPM, ControlType.kSmartVelocity);
 
+  }
+
+  public void idle() {
+    m_frontPID.setReference(k_shooter.frontIdleSpeedRPM, ControlType.kSmartVelocity);
+    m_backPID.setReference(k_shooter.backIdleSpeedRPM, ControlType.kSmartVelocity);
   }
 
   public void stopShooter() {

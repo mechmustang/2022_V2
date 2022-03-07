@@ -7,12 +7,13 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.driveStraight;
+import frc.robot.commands.idleShooter;
 import frc.robot.subsystems.drive;
 import frc.robot.Constants.*;
 import frc.robot.commands.runGrabber;
 import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
-import frc.robot.commands.shutDownShooter;
+import frc.robot.commands.stopLoader;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -39,7 +40,7 @@ public class RobotContainer {
     
     m_chassis.setDefaultCommand(
       new RunCommand(() -> m_chassis
-        .arcadeDrive(m_driveController.getY(), 
+        .preciseDrive(m_driveController.getY(), 
                      m_driveController.getX()), 
                      m_chassis));
     
@@ -56,12 +57,16 @@ public class RobotContainer {
     final JoystickButton xBoxA = new JoystickButton(m_systemController, 1);
     final JoystickButton xBoxB = new JoystickButton(m_systemController, 2);
     final JoystickButton xBoxX = new JoystickButton(m_systemController, 3);
-    final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
+    final JoystickButton trigger = new JoystickButton(m_driveController, 1);
+    //final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
 
     xBoxA.whenPressed(new runGrabber());
-    xBoxB.whenPressed(new runLoader());
-    xBoxX.whenPressed(new runShooter());
-    xBoxY.whenPressed(new shutDownShooter());
+    xBoxB.whileHeld(new runLoader());
+    xBoxB.whenReleased(new stopLoader());
+    xBoxX.whileHeld(new runShooter());
+    xBoxX.whenReleased(new idleShooter());
+    trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(.8));
+    
 
   }
 

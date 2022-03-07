@@ -61,7 +61,27 @@ public class drive extends SubsystemBase {
   }
 
   public void arcadeDrive(double speed, double rot) {
-    drive.arcadeDrive(-speed, rot);
+    drive.arcadeDrive(-speed*0.8, 0.7*rot);
+
+  }
+
+  public void preciseDrive(double moving, double turning) {
+    double speed = 0;
+    double turn = 0;
+
+    if (moving >= -0.02 || moving <= 0.02) {
+      turn = k_chassis.rotationMultiplier * turning;
+    } else if (moving >= -0.30 || moving <= 0.30) {
+      speed = k_chassis.speedMultiplier * moving * 0.5;
+      if (Math.abs(turning) > .10) {
+        turn = k_chassis.rotationMultiplier * turning * 0.9; 
+      }
+    } else {
+      turn = k_chassis.rotationMultiplier * turning;
+      speed = moving * k_chassis.speedMultiplier;
+    }
+
+     drive.arcadeDrive(speed, turn);
 
   }
 
@@ -79,6 +99,10 @@ public class drive extends SubsystemBase {
   public void halt() {
     drive.arcadeDrive(0, 0);
 
+  }
+
+  public void setMaxOutput(double maxSpeed) {
+    drive.setMaxOutput(maxSpeed);
   }
 
   @Override

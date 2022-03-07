@@ -28,6 +28,9 @@ public final class Constants {
 
       public static final int kDriveControlStick = 0;
       public static final int kSystemController = 1;
+
+      public static final double speedMultiplier = 0.9;
+      public static final double rotationMultiplier = 0.7;
    }
 
    public final class k_shooter {
@@ -55,10 +58,12 @@ public final class Constants {
       public static final double kMinOutputBack = -1;
       public static final double kMaxOutputBack = 1;
 
-      public static final double grabberSpeed = -0.5;   // Victor SPX voltage as a percentage
-      public static final double loaderSpeed = -0.4;    // Victor SPX voltage as a percentage
-      public static final double frontShooterSpeedRPM = 500;   // Spark MAX speed in RPM
-      public static final double backShooterSpeedRPM = 500;
+      public static final double grabberSpeed = -0.7;   // Victor SPX voltage as a percentage
+      public static final double loaderSpeed = -0.5;    // Victor SPX voltage as a percentage
+      public static final double frontShooterSpeedRPM = 650;   // Spark MAX speed in RPM
+      public static final double backShooterSpeedRPM = 325;
+      public static final double frontIdleSpeedRPM = 100;
+      public static final double backIdleSpeedRPM = 100;
    
    }
 
