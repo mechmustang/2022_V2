@@ -6,7 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.driveStraight;
+//import frc.robot.commands.driveStraight;
 import frc.robot.subsystems.drive;
 import frc.robot.subsystems.loader;
 import frc.robot.subsystems.outerArmsAngle;
@@ -21,10 +21,7 @@ import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
 import frc.robot.commands.shutDownShooting;
 import frc.robot.commands.stopLoader;
-import frc.robot.commands.setInnerAngle;
-import frc.robot.commands.setInnerLength;
-import frc.robot.commands.setOuterAngle;
-import frc.robot.commands.setOuterLength;
+import frc.robot.commands.testArms;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -43,7 +40,6 @@ public class RobotContainer {
   private final Joystick m_driveController = new Joystick(k_chassis.kDriveControlStick);
   private final XboxController m_systemController = new XboxController(k_chassis.kSystemController);
   private final drive m_chassis = new drive();
-  private final driveStraight m_autoCommand = new driveStraight();
   private final shooter m_shooterBack = new shooter();
   private final loader m_loader = new loader();
   private final grabber m_grabber = new grabber();
@@ -51,6 +47,11 @@ public class RobotContainer {
   private final outerArmsAngle m_outerArmsAngle = new outerArmsAngle();
   private final innerArmsLength m_innerArmsLength = new innerArmsLength();
   private final innerArmsAngle m_innerArmsAngle = new innerArmsAngle();
+  private final testArms m_autoCommand = new testArms(
+    m_innerArmsAngle, 
+    m_innerArmsLength, 
+    m_outerArmsAngle, 
+    m_outerArmsLength);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -82,7 +83,7 @@ public class RobotContainer {
     xBoxX.whenPressed(new runGrabber(m_grabber));
     xBoxA.whileHeld(new runLoader(m_loader));
     xBoxA.whenReleased(new stopLoader(m_loader));
-    xBoxB.whileHeld(new runShooter(m_shooterBack,k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
+    xBoxB.whileHeld(new runShooter(m_shooterBack, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
     xBoxB.whenReleased(new runShooter(m_shooterBack, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM));
     xBoxY.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
     trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(.8));
