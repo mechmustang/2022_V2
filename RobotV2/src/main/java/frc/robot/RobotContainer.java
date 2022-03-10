@@ -7,13 +7,25 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.driveStraight;
-import frc.robot.commands.idleShooter;
 import frc.robot.subsystems.drive;
+import frc.robot.subsystems.loader;
+import frc.robot.subsystems.outerArmsAngle;
+import frc.robot.subsystems.outerArmsLength;
+import frc.robot.subsystems.shooter;
+import frc.robot.subsystems.grabber;
+import frc.robot.subsystems.innerArmsAngle;
+import frc.robot.subsystems.innerArmsLength;
 import frc.robot.Constants.*;
 import frc.robot.commands.runGrabber;
 import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
+import frc.robot.commands.shutDownShooting;
 import frc.robot.commands.stopLoader;
+import frc.robot.commands.setInnerAngle;
+import frc.robot.commands.setInnerLength;
+import frc.robot.commands.setOuterAngle;
+import frc.robot.commands.setOuterLength;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -32,6 +44,13 @@ public class RobotContainer {
   private final XboxController m_systemController = new XboxController(k_chassis.kSystemController);
   private final drive m_chassis = new drive();
   private final driveStraight m_autoCommand = new driveStraight();
+  private final shooter m_shooterBack = new shooter();
+  private final loader m_loader = new loader();
+  private final grabber m_grabber = new grabber();
+  private final outerArmsLength m_outerArmsLength = new outerArmsLength();
+  private final outerArmsAngle m_outerArmsAngle = new outerArmsAngle();
+  private final innerArmsLength m_innerArmsLength = new innerArmsLength();
+  private final innerArmsAngle m_innerArmsAngle = new innerArmsAngle();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -40,7 +59,7 @@ public class RobotContainer {
     
     m_chassis.setDefaultCommand(
       new RunCommand(() -> m_chassis
-        .preciseDrive(m_driveController.getY(), 
+        .arcadeDrive(m_driveController.getY(), 
                      m_driveController.getX()), 
                      m_chassis));
     
@@ -54,19 +73,19 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    final JoystickButton xBoxA = new JoystickButton(m_systemController, 1);
-    final JoystickButton xBoxB = new JoystickButton(m_systemController, 2);
-    final JoystickButton xBoxX = new JoystickButton(m_systemController, 3);
+    final JoystickButton xBoxX = new JoystickButton(m_systemController, 1);
+    final JoystickButton xBoxA = new JoystickButton(m_systemController, 2);
+    final JoystickButton xBoxB = new JoystickButton(m_systemController, 3);
     final JoystickButton trigger = new JoystickButton(m_driveController, 1);
-    //final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
+    final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
 
-    xBoxA.whenPressed(new runGrabber());
-    xBoxB.whileHeld(new runLoader());
-    xBoxB.whenReleased(new stopLoader());
-    xBoxX.whileHeld(new runShooter());
-    xBoxX.whenReleased(new idleShooter());
+    xBoxX.whenPressed(new runGrabber(m_grabber));
+    xBoxA.whileHeld(new runLoader(m_loader));
+    xBoxA.whenReleased(new stopLoader(m_loader));
+    xBoxB.whileHeld(new runShooter(m_shooterBack,k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
+    xBoxB.whenReleased(new runShooter(m_shooterBack, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM));
+    xBoxY.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
     trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(.8));
-    
 
   }
 

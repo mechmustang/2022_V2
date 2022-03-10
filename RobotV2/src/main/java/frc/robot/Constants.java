@@ -70,18 +70,18 @@ public final class Constants {
    public final class k_innerArms {
       public static final int lengthCanID = 10; //SparkMAX motor controller
       public static final int angleCanID = 12;  //SparkMAX motor controller
-      public static final double akP = 0.0001; 
+      public static final double akP = 0.00004; 
       public static final double akI = 0;
-      public static final double akD = 0.000001;
+      public static final double akD = 0;
       public static final double akIz = 0;
-      public static final double akFF = 0.00002;
+      public static final double akFF = 0.0014;
       public static final double akMaxOutput = 1; 
       public static final double akMinOutput = -1;
-      public static final double lkP = 0.0001; 
+      public static final double lkP = 0.00004; 
       public static final double lkI = 0;
-      public static final double lkD = 0.000001;
+      public static final double lkD = 0;
       public static final double lkIz = 0;
-      public static final double lkFF = 0.00002;
+      public static final double lkFF = 0.0014;
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
@@ -92,18 +92,18 @@ public final class Constants {
    public final class k_outerArms {
       public static final int lengthCanID = 3;
       public static final int angleCanID = 11;
-      public static final double akP = 0.0001; 
+      public static final double akP = 0.00004; 
       public static final double akI = 0;
-      public static final double akD = 0.000001;
+      public static final double akD = 0;
       public static final double akIz = 0;
-      public static final double akFF = 0.00002;
+      public static final double akFF = 0.0014;
       public static final double akMaxOutput = 1; 
       public static final double akMinOutput = -1;
-      public static final double lkP = 0.0001; 
+      public static final double lkP = 0.00004; 
       public static final double lkI = 0;
-      public static final double lkD = 0.000001;
+      public static final double lkD = 0;
       public static final double lkIz = 0;
-      public static final double lkFF = 0.0001;
+      public static final double lkFF = 0.0014;
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 

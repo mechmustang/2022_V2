@@ -8,10 +8,15 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.shooter;
 
 public class runShooter extends CommandBase {
-  private shooter m_shooter = new shooter();
+  private final shooter m_shooter;
+  private double m_frontSetPoint;
+  private double m_backSetPoint;
 
   /** Creates a new runShooter. */
-  public runShooter() {
+  public runShooter(shooter shooter, double frontSetPoint, double backSetPoint) {
+    m_frontSetPoint = frontSetPoint;
+    m_backSetPoint = backSetPoint;
+    m_shooter = shooter;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
   }
@@ -23,13 +28,13 @@ public class runShooter extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shooter.startShooter();
+    m_shooter.run(m_frontSetPoint, m_backSetPoint);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_shooter.stopShooter();
+    //m_shooterBack.run(0);
   }
 
   // Returns true when the command should end.

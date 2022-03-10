@@ -5,14 +5,21 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.loader;
 import frc.robot.subsystems.shooter;
+import frc.robot.subsystems.grabber;
 
-public class idleShooter extends CommandBase {
-  private final shooter m2_shooter = new shooter();
+public class shutDownShooting extends CommandBase {
+  private final shooter m_shooter;
+  private final grabber m_grabber;
 
-  /** Creates a new idleShooter. */
-  public idleShooter() {
-    addRequirements(m2_shooter);
+  /** Creates a new shutDownShooting. */
+  public shutDownShooting(shooter shooter, grabber grabber) {
+    m_grabber = grabber;
+    m_shooter = shooter;
+    // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(m_shooter);
+    addRequirements(m_grabber);
   }
 
   // Called when the command is initially scheduled.
@@ -22,7 +29,8 @@ public class idleShooter extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m2_shooter.idle();
+    m_shooter.stop();
+    m_grabber.stopGrabber();
   }
 
   // Called once the command ends or is interrupted.

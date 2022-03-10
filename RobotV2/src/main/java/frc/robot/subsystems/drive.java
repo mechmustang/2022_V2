@@ -4,13 +4,9 @@
 
 package frc.robot.subsystems;
 
-//import frc.robot.Robot;
 //import edu.wpi.first.wpilibj.AnalogGyro;
 //import edu.wpi.first.wpilibj.AnalogInput;
 //import edu.wpi.first.wpilibj.Encoder;
-//import com.ctre.phoenix.motorcontrol.ControlMode;
-//import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-//import com.ctre.phoenix.motorcontrol.Faults;
 import com.ctre.phoenix.motorcontrol.InvertType;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -20,7 +16,6 @@ import frc.robot.Constants.*;
 // **** Something needs to happen with motor safety ****
 
 public class drive extends SubsystemBase {
-  /** Creates a new chassis. */
   private final WPI_TalonSRX leftLeader;
   private final WPI_TalonSRX rightLeader;
   private final WPI_TalonSRX leftFollower;
@@ -72,7 +67,7 @@ public class drive extends SubsystemBase {
     if (moving >= -0.02 || moving <= 0.02) {
       turn = k_chassis.rotationMultiplier * turning;
     } else if (moving >= -0.30 || moving <= 0.30) {
-      speed = k_chassis.speedMultiplier * moving * 0.5;
+      speed = k_chassis.speedMultiplier * moving;
       if (Math.abs(turning) > .10) {
         turn = k_chassis.rotationMultiplier * turning * 0.9; 
       }

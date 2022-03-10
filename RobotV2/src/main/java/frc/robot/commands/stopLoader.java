@@ -9,8 +9,9 @@ import frc.robot.subsystems.loader;
 
 public class stopLoader extends CommandBase {
   /** Creates a new stopLoader. */
-  private loader m_loader = new loader();
-  public stopLoader() {
+  private final loader m_loader;
+  public stopLoader(loader loader) {
+    m_loader = loader;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_loader);
   }

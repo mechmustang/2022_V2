@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.loader;
 
 public class runLoader extends CommandBase {
-  private loader m_loader = new loader();
+  private loader m_loader;
 
   /** Creates a new runLoader. */
-  public runLoader() {
+  public runLoader(loader loader) {
+    m_loader = loader;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_loader);
   }
