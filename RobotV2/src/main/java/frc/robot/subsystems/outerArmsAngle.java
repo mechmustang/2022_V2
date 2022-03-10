@@ -13,9 +13,9 @@ import frc.robot.Constants.k_outerArms;
 
 
 public class outerArmsAngle extends SubsystemBase {
-  private CANSparkMax m_angleMotor;
-  private SparkMaxPIDController m_anglePID;
-  public RelativeEncoder m_angleEncoder;
+  private final CANSparkMax m_angleMotor;
+  private final SparkMaxPIDController m_anglePID;
+  private final RelativeEncoder m_angleEncoder;
 
   /** Creates a new innerArms. */
   public outerArmsAngle() {
@@ -42,6 +42,10 @@ public class outerArmsAngle extends SubsystemBase {
     // do some math to calibrate angle into a position
     double position = angle;
     m_anglePID.setReference(position, CANSparkMax.ControlType.kPosition);
+  }
+
+  public double getAngle() {
+    return m_angleEncoder.getPosition();
   }
 
   @Override

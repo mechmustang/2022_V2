@@ -13,9 +13,9 @@ import frc.robot.Constants.k_outerArms;
 
 
 public class outerArmsLength extends SubsystemBase {
-  private CANSparkMax m_lengthMotor;
-  private SparkMaxPIDController m_lengthPID;
-  public RelativeEncoder m_lengthEncoder;
+  private final CANSparkMax m_lengthMotor;
+  private final SparkMaxPIDController m_lengthPID;
+  private final RelativeEncoder m_lengthEncoder;
 
   /** Creates a new innerArms. */
   public outerArmsLength() {
@@ -42,6 +42,10 @@ public class outerArmsLength extends SubsystemBase {
     // do some math to calibrate length into a postion
     double position = length;
     m_lengthPID.setReference(position, CANSparkMax.ControlType.kPosition);
+  }
+
+  public double getLength() {
+    return m_lengthEncoder.getPosition();
   }
 
   @Override

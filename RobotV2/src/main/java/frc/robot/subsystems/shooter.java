@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
-//import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import frc.robot.Constants.*;
@@ -71,6 +70,14 @@ public class shooter extends SubsystemBase {
 
   public void close() {
     m_shooterBack.close();
+  }
+
+  public double getFrontSpeed() {
+    return m_frontEncoder.getVelocity();
+  }
+
+  public double getBackSpeed() {
+    return m_backEncoder.getVelocity();
   }
 
   @Override

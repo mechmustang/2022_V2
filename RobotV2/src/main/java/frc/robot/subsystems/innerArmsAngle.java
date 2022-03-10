@@ -44,6 +44,10 @@ public class innerArmsAngle extends SubsystemBase {
     m_anglePID.setReference(position, CANSparkMax.ControlType.kPosition);
   }
 
+  public double getAngle() {
+    return m_angleEncoder.getPosition();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

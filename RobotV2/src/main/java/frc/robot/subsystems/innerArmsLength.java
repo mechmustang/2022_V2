@@ -44,6 +44,10 @@ public class innerArmsLength extends SubsystemBase {
     m_lengthPID.setReference(position, CANSparkMax.ControlType.kPosition);
   }
 
+  public double getLength() {
+    return m_lengthEncoder.getPosition();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
