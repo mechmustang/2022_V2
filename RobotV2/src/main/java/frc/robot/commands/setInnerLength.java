@@ -36,6 +36,6 @@ public class setInnerLength extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_length == m_innerArmsLength.getLength();
+    return (m_length >= m_innerArmsLength.getLength()-1 && m_length <= m_innerArmsLength.getLength()+1);
   }
 }

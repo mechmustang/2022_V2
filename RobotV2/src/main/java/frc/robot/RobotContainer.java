@@ -63,7 +63,18 @@ public class RobotContainer {
         .arcadeDrive(m_driveController.getY(), 
                      m_driveController.getX()), 
                      m_chassis));
-    
+    m_outerArmsAngle.setDefaultCommand(
+      new RunCommand(() -> m_outerArmsAngle
+        .move(m_systemController.getLeftY()), m_outerArmsAngle));
+    m_outerArmsLength.setDefaultCommand(
+      new RunCommand(() -> m_outerArmsLength
+        .move(m_systemController.getLeftX()), m_outerArmsLength));
+    m_innerArmsAngle.setDefaultCommand(
+      new RunCommand(() -> m_innerArmsAngle
+        .move(m_systemController.getRightY()), m_innerArmsAngle));
+    m_innerArmsLength.setDefaultCommand(
+      new RunCommand(() -> m_innerArmsLength
+        .move(m_systemController.getRightX()), m_innerArmsLength));
   }
 
   /**
@@ -79,6 +90,7 @@ public class RobotContainer {
     final JoystickButton xBoxB = new JoystickButton(m_systemController, 3);
     final JoystickButton trigger = new JoystickButton(m_driveController, 1);
     final JoystickButton xBoxY = new JoystickButton(m_systemController, 4);
+    
 
     xBoxX.whenPressed(new runGrabber(m_grabber));
     xBoxA.whileHeld(new runLoader(m_loader));
@@ -88,6 +100,7 @@ public class RobotContainer {
     xBoxY.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
     trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(.8));
 
+    
   }
 
   /**

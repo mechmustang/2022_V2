@@ -37,6 +37,6 @@ public class setInnerAngle extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_position == m_innerArmAngle.getAngle();
+    return (m_position >= m_innerArmAngle.getAngle()-1 && m_position <= m_innerArmAngle.getAngle()+1);
   }
 }

@@ -85,7 +85,7 @@ public final class Constants {
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
-      public static final boolean lMotorReversed = false;
+      public static final boolean lMotorReversed = true;
       public static final boolean aMotorReversed = false;
    }
 
@@ -107,7 +107,7 @@ public final class Constants {
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
-      public static final boolean lMotorReversed = false;
-      public static final boolean aMotorReversed = false;
+      public static final boolean lMotorReversed = true;
+      public static final boolean aMotorReversed = true;
    }
 }

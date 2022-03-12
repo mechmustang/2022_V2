@@ -35,17 +35,21 @@ public class outerArmsAngle extends SubsystemBase {
   }
 
   public void homeArms() {
-    m_anglePID.setReference(0, CANSparkMax.ControlType.kPosition);
+    m_anglePID.setReference(0, CANSparkMax.ControlType.kSmartMotion);
   }
 
   public void setAngle(double angle) {
     // do some math to calibrate angle into a position
     double position = angle;
-    m_anglePID.setReference(position, CANSparkMax.ControlType.kPosition);
+    m_anglePID.setReference(position, CANSparkMax.ControlType.kSmartMotion);
   }
 
   public double getAngle() {
     return m_angleEncoder.getPosition();
+  }
+
+  public void move(double speed) {
+    m_angleMotor.set(speed);
   }
 
   @Override

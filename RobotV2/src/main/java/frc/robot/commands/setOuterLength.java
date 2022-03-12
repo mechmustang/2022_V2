@@ -36,6 +36,8 @@ public class setOuterLength extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return m_length == m_outerArmsLength.getLength();
+    System.out.println(m_length);
+    System.out.println(m_outerArmsLength.getLength());
+    return (m_length >= m_outerArmsLength.getLength()-1 && m_length <= m_outerArmsLength.getLength()+1);
   }
 }

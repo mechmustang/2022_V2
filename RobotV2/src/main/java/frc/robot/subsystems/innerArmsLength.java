@@ -35,17 +35,21 @@ public class innerArmsLength extends SubsystemBase {
   }
 
   public void homeArms() {
-    m_lengthPID.setReference(0, CANSparkMax.ControlType.kPosition);
+    m_lengthPID.setReference(0, CANSparkMax.ControlType.kSmartMotion);
   }
 
   public void setLength(double length) {
     // do some math to calibrate length into a postion
     double position = length;
-    m_lengthPID.setReference(position, CANSparkMax.ControlType.kPosition);
+    m_lengthPID.setReference(position, CANSparkMax.ControlType.kSmartMotion);
   }
 
   public double getLength() {
     return m_lengthEncoder.getPosition();
+  }
+
+  public void move(double speed) {
+    m_lengthMotor.set(speed);
   }
 
   @Override

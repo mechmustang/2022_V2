@@ -30,10 +30,15 @@ public class testArms extends SequentialCommandGroup {
 
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new setInnerAngle(m_innerArmsAngle, 5));
+    //addCommands(new setInnerAngle(m_innerArmsAngle, 10));
+    //addCommands(new setOuterAngle(m_outerArmsAngle, 5));
     addCommands(new ParallelCommandGroup(
-      new setInnerLength(m_innerArmsLength, 50), 
-      new setOuterAngle(m_outerArmsAngle, 5)));
-    addCommands(new setOuterLength(m_outerArmsLength, 50));
+      new setInnerLength(m_innerArmsLength, 100), 
+      new setInnerAngle(m_innerArmsAngle, 5)));
+    addCommands(new setInnerAngle(m_innerArmsAngle, -5));
+    addCommands(new ParallelCommandGroup(
+      new setInnerLength(m_innerArmsLength, 0),
+      new setOuterAngle(m_outerArmsAngle, 20)));
+    addCommands(new setOuterLength(m_outerArmsLength, 100));
   }
 }

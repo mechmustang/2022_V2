@@ -62,14 +62,12 @@ public class shooter extends SubsystemBase {
 
   public void idle() {
     m_backPID.setReference(k_shooter.backIdleSpeedRPM, CANSparkMax.ControlType.kSmartVelocity);
+    m_frontPID.setReference(k_shooter.frontIdleSpeedRPM, CANSparkMax.ControlType.kSmartVelocity);
   }
 
   public void stop() {
     m_backPID.setReference(0, CANSparkMax.ControlType.kSmartVelocity);
-  }
-
-  public void close() {
-    m_shooterBack.close();
+    m_frontPID.setReference(0, CANSparkMax.ControlType.kSmartVelocity);
   }
 
   public double getFrontSpeed() {
