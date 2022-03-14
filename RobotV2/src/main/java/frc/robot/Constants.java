@@ -85,7 +85,7 @@ public final class Constants {
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
-      public static final boolean lMotorReversed = true;
+      public static final boolean lMotorReversed = false;
       public static final boolean aMotorReversed = false;
    }
 
@@ -109,5 +109,21 @@ public final class Constants {
 
       public static final boolean lMotorReversed = true;
       public static final boolean aMotorReversed = true;
+   }
+
+   public final class k_xbox {
+      public static final int buttonX = 1;
+      public static final int buttonY = 4;
+      public static final int buttonA = 2;
+      public static final int buttonB = 3;
+      public static final int buttonLeftBumper = 5;
+      public static final int buttonRightBumper = 6;
+      public static final int buttonBack = 7;
+      public static final int buttonStart = 8;
+      public static final int leftXAxis = 1;
+      public static final int leftYAxis = 2;
+      public static final int rightXAxis = 4;
+      public static final int rightYAxis = 5;
+
    }
 }

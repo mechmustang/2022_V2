@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
@@ -50,6 +51,7 @@ public class innerArmsLength extends SubsystemBase {
 
   public void move(double speed) {
     m_lengthMotor.set(speed);
+    SmartDashboard.putNumber("Inner Length", m_lengthEncoder.getPosition());
   }
 
   @Override

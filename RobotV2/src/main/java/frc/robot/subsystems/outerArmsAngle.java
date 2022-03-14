@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
@@ -50,6 +51,7 @@ public class outerArmsAngle extends SubsystemBase {
 
   public void move(double speed) {
     m_angleMotor.set(speed);
+    SmartDashboard.putNumber("Outer Angle", m_angleEncoder.getPosition());
   }
 
   @Override
