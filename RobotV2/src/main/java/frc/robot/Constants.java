@@ -118,12 +118,13 @@ public final class Constants {
       public static final int buttonB = 3;
       public static final int buttonLeftBumper = 5;
       public static final int buttonRightBumper = 6;
-      public static final int buttonBack = 7;
-      public static final int buttonStart = 8;
-      public static final int leftXAxis = 1;
-      public static final int leftYAxis = 2;
-      public static final int rightXAxis = 4;
-      public static final int rightYAxis = 5;
-
+      public static final int buttonLeftLowerBumper = 7;
+      public static final int buttonRightLowerBumper = 8;
+      public static final int buttonBack = 9;
+      public static final int buttonStart = 10;
+      public static final int leftXAxis = 0;
+      public static final int leftYAxis = 1;
+      public static final int rightXAxis = 2;
+      public static final int rightYAxis = 3;
    }
 }
