@@ -64,16 +64,16 @@ public class RobotContainer {
                      m_chassis));
     m_outerArmsAngle.setDefaultCommand(
       new RunCommand(() -> m_outerArmsAngle
-        .move(m_systemController.getRawAxis(k_xbox.leftXAxis) * 0.3), m_outerArmsAngle));
+        .move(m_systemController.getRawAxis(k_xbox.leftXAxis) * 0.15), m_outerArmsAngle));
     m_outerArmsLength.setDefaultCommand(
       new RunCommand(() -> m_outerArmsLength
-        .move(m_systemController.getRawAxis(k_xbox.leftYAxis) * -0.5), m_outerArmsLength));
+        .move(m_systemController.getRawAxis(k_xbox.leftYAxis) * -0.9), m_outerArmsLength));
     m_innerArmsAngle.setDefaultCommand(
       new RunCommand(() -> m_innerArmsAngle
-        .move(m_systemController.getRawAxis(k_xbox.rightXAxis) * 0.3), m_innerArmsAngle));
+        .move(m_systemController.getRawAxis(k_xbox.rightXAxis) * 0.15), m_innerArmsAngle));
     m_innerArmsLength.setDefaultCommand(
       new RunCommand(() -> m_innerArmsLength
-        .move(m_systemController.getRawAxis(k_xbox.rightYAxis) * -0.5), m_innerArmsLength));
+        .move(m_systemController.getRawAxis(k_xbox.rightYAxis) * -0.9), m_innerArmsLength));
   }
 
   /**
@@ -89,14 +89,16 @@ public class RobotContainer {
     final JoystickButton xBoxB = new JoystickButton(m_systemController, k_xbox.buttonB);
     final JoystickButton trigger = new JoystickButton(m_driveController, 1);
     final JoystickButton xBoxY = new JoystickButton(m_systemController, k_xbox.buttonY);
-    
+    final JoystickButton xBoxBack = new JoystickButton(m_systemController, k_xbox.buttonBack);
 
     xBoxX.whenPressed(new runGrabber(m_grabber));
-    xBoxA.whileHeld(new runLoader(m_loader));
-    xBoxA.whenReleased(new stopLoader(m_loader));
+    xBoxY.whileHeld(new runLoader(m_loader));
+    xBoxY.whenReleased(new stopLoader(m_loader));
     xBoxB.whileHeld(new runShooter(m_shooterBack, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
     xBoxB.whenReleased(new runShooter(m_shooterBack, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM));
-    xBoxY.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
+    xBoxA.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
+    xBoxBack.whenPressed(new testArms(m_innerArmsAngle, m_innerArmsLength, m_outerArmsAngle, m_outerArmsLength));
+
     trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(0.9));
     
   }

@@ -33,12 +33,13 @@ public class testArms extends SequentialCommandGroup {
     //addCommands(new setInnerAngle(m_innerArmsAngle, 10));
     //addCommands(new setOuterAngle(m_outerArmsAngle, 5));
     addCommands(new ParallelCommandGroup(           // reach up and slightly out with the inner arms
-      new setInnerLength(m_innerArmsLength, 150),   
-      new setInnerAngle(m_innerArmsAngle, 5)));
-    addCommands(new setInnerAngle(m_innerArmsAngle, -5)); // move inner arms back to hook bar
+      new setInnerLength(m_innerArmsLength, 240),   
+      new setInnerAngle(m_innerArmsAngle, 10)));
+    addCommands(new setInnerAngle(m_innerArmsAngle, 0)); // move inner arms back to hook bar
     addCommands(new ParallelCommandGroup(           // lift robot with inner and angle outer forward
-      new setInnerLength(m_innerArmsLength, 0),
-      new setOuterAngle(m_outerArmsAngle, 20)));
+      new setInnerLength(m_innerArmsLength, 10),
+      new setOuterAngle(m_outerArmsAngle, 20),
+      new setOuterLength(m_outerArmsLength, 325)));
     addCommands(new setOuterLength(m_outerArmsLength, 150));  // extend outer arms
   }
 }

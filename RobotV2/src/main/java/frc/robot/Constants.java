@@ -77,11 +77,11 @@ public final class Constants {
       public static final double akFF = 0.0014;
       public static final double akMaxOutput = 1; 
       public static final double akMinOutput = -1;
-      public static final double lkP = 0.00004; 
+      public static final double lkP = 0.00004;    // Make changes here
       public static final double lkI = 0;
       public static final double lkD = 0;
       public static final double lkIz = 0;
-      public static final double lkFF = 0.0014;
+      public static final double lkFF = 0.0014;    // and here
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
@@ -99,11 +99,11 @@ public final class Constants {
       public static final double akFF = 0.0014;
       public static final double akMaxOutput = 1; 
       public static final double akMinOutput = -1;
-      public static final double lkP = 0.00004; 
+      public static final double lkP = 0.00004;    //Make changes here
       public static final double lkI = 0;
       public static final double lkD = 0;
       public static final double lkIz = 0;
-      public static final double lkFF = 0.0014;
+      public static final double lkFF = 0.0014;    //and here
       public static final double lkMaxOutput = 1; 
       public static final double lkMinOutput = -1;
 
