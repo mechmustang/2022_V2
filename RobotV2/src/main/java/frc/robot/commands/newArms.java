@@ -47,7 +47,8 @@ public class newArms extends SequentialCommandGroup {
       new setInnerLength(m_innerArmsLength, 0),
       new setOuterLength(m_outerArmsLength, 0),
       new setInnerAngle(m_innerArmsAngle, 0),
-      new setOuterAngle(m_outerArmsAngle, 5)));
+      new setOuterAngle(m_outerArmsAngle, 10))); // trying to make it more level.
+                                                 // was 5 so if it causes problems change it back
   }
 }
 
