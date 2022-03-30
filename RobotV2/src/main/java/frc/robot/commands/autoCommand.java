@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants.k_shooter;
 import frc.robot.subsystems.drive;
@@ -29,8 +30,13 @@ public class autoCommand extends SequentialCommandGroup {
 
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new driveStraight(0.2, 1, m_drive));
-    addCommands(new runShooter(m_shooter, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
-    
+    //addCommands(new driveStraight(0.2, 1, m_drive));
+    addCommands(new autoRunShooter(1.0, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM, m_shooter));
+    addCommands(new autoRunLoader(2.0, m_loader));
+    addCommands(new ParallelCommandGroup(
+      new autoRunShooter(0.5, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM, m_shooter),
+      new autoRunGrabber(m_grabber)));
+    addCommands(new driveStraight(-0.5, 4, m_drive));
+
   }
 }

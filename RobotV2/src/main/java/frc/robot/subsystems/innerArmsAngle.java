@@ -26,6 +26,7 @@ public class innerArmsAngle extends SubsystemBase {
     m_anglePID = m_angleMotor.getPIDController();
     m_angleEncoder = m_angleMotor.getEncoder();
 
+    m_angleMotor.setSmartCurrentLimit(30, 20, 0);
     m_anglePID.setP(k_innerArms.akP);
     m_anglePID.setI(k_innerArms.akI);
     m_anglePID.setD(k_innerArms.akD);
@@ -33,6 +34,7 @@ public class innerArmsAngle extends SubsystemBase {
     m_anglePID.setFF(k_innerArms.akFF);
     m_anglePID.setOutputRange(k_innerArms.akMinOutput, k_innerArms.akMaxOutput);
 
+    m_angleMotor.burnFlash();
   }
 
   public void homeArms() {

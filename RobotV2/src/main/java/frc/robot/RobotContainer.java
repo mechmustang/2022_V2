@@ -15,12 +15,14 @@ import frc.robot.subsystems.grabber;
 import frc.robot.subsystems.innerArmsAngle;
 import frc.robot.subsystems.innerArmsLength;
 import frc.robot.Constants.*;
+import frc.robot.commands.autoCommand;
 import frc.robot.commands.runGrabber;
 import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
 import frc.robot.commands.shutDownShooting;
 import frc.robot.commands.stopLoader;
 import frc.robot.commands.testArms;
+import frc.robot.commands.newArms;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -46,11 +48,8 @@ public class RobotContainer {
   private final outerArmsAngle m_outerArmsAngle = new outerArmsAngle();
   private final innerArmsLength m_innerArmsLength = new innerArmsLength();
   private final innerArmsAngle m_innerArmsAngle = new innerArmsAngle();
-  private final testArms m_autoCommand = new testArms(
-    m_innerArmsAngle, 
-    m_innerArmsLength, 
-    m_outerArmsAngle, 
-    m_outerArmsLength);
+  private final autoCommand m_autoCommand = new autoCommand(m_chassis, m_grabber, m_loader, m_shooterBack);
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -97,9 +96,9 @@ public class RobotContainer {
     xBoxB.whileHeld(new runShooter(m_shooterBack, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM));
     xBoxB.whenReleased(new runShooter(m_shooterBack, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM));
     xBoxA.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
-    xBoxBack.whenPressed(new testArms(m_innerArmsAngle, m_innerArmsLength, m_outerArmsAngle, m_outerArmsLength));
+    xBoxBack.whenPressed(new newArms(m_innerArmsAngle, m_innerArmsLength, m_outerArmsAngle, m_outerArmsLength));
 
-    trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(0.9));
+    trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(1));
     
   }
 

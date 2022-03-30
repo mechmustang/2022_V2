@@ -60,8 +60,8 @@ public final class Constants {
 
       public static final double grabberSpeed = -0.7;   // Victor SPX voltage as a percentage
       public static final double loaderSpeed = -0.5;    // Victor SPX voltage as a percentage
-      public static final double frontShooterSpeedRPM = 650;   // Spark MAX speed in RPM
-      public static final double backShooterSpeedRPM = 325;
+      public static final double frontShooterSpeedRPM = 600;   // Spark MAX speed in RPM
+      public static final double backShooterSpeedRPM = 305;
       public static final double frontIdleSpeedRPM = 100;
       public static final double backIdleSpeedRPM = 100;
    

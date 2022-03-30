@@ -11,14 +11,14 @@ import frc.robot.subsystems.innerArmsLength;
 import frc.robot.subsystems.outerArmsAngle;
 import frc.robot.subsystems.outerArmsLength;
 
-public class testArms extends SequentialCommandGroup {
+public class newArms extends SequentialCommandGroup {
   private final innerArmsAngle m_innerArmsAngle;
   private final innerArmsLength m_innerArmsLength;
   private final outerArmsAngle m_outerArmsAngle;
   private final outerArmsLength m_outerArmsLength;
 
   /** Creates a new testArms. */
-  public testArms(innerArmsAngle innerArmsAngle, 
+  public newArms(innerArmsAngle innerArmsAngle, 
     innerArmsLength innerArmsLength,
     outerArmsAngle outerArmsAngle,
     outerArmsLength outerArmsLength) {
@@ -28,28 +28,26 @@ public class testArms extends SequentialCommandGroup {
     m_outerArmsAngle = outerArmsAngle;
     m_outerArmsLength = outerArmsLength;
 
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
-    //addCommands(new setInnerAngle(m_innerArmsAngle, 10));
-    //addCommands(new setOuterAngle(m_outerArmsAngle, 5));
+    addCommands(new setInnerAngle(m_innerArmsAngle, 15));
     addCommands(new ParallelCommandGroup(           // reach up and slightly out with the inner arms
+      new setOuterLength(m_outerArmsLength, 1260),
       new setInnerLength(m_innerArmsLength, 1000),   
-      new setInnerAngle(m_innerArmsAngle, 25)));
-    addCommands(new setInnerAngle(m_innerArmsAngle, -25)); // move inner arms back to hook bar
-    addCommands(new ParallelCommandGroup(           // lift robot with inner and angle outer forward
-      new setInnerAngle(m_innerArmsAngle, 25),
-      new setInnerLength(m_innerArmsLength, -70),
-      new setOuterAngle(m_outerArmsAngle, 45),
-      new setOuterLength(m_outerArmsLength, 1260)));
-    addCommands(new setOuterAngle(m_outerArmsAngle, 25));
+      //new setInnerAngle(m_innerArmsAngle, 0),
+      new setOuterAngle(m_outerArmsAngle, -25)));
+    addCommands(new setInnerAngle(m_innerArmsAngle, -5)); // move inner arms back to hook bar
+    addCommands(new setInnerLength(m_innerArmsLength, 0));  // lift robot with inner and angle outer forward
     addCommands(new ParallelCommandGroup(
-      new setOuterLength(m_outerArmsLength, 500),
-      new setInnerLength(m_innerArmsLength, 800)));  // extend outer arms
-      new setInnerAngle(m_innerArmsAngle, 0);
+      new setOuterAngle(m_outerArmsAngle, -50),
+      new setInnerAngle(m_innerArmsAngle, 10)));
+    addCommands(new ParallelCommandGroup(           
+      new setInnerLength(m_innerArmsLength, 1000),
+      new setOuterLength(m_outerArmsLength, 500)));
+    addCommands(new setInnerLength(m_innerArmsLength, 250));
     addCommands(new ParallelCommandGroup(
-      new setOuterAngle(m_outerArmsAngle, -25),
-      new setInnerLength(m_innerArmsLength, 400),
-      new setInnerAngle(innerArmsAngle, 45)));
-    addCommands(new setOuterAngle(m_outerArmsAngle, 0));
+      new setInnerLength(m_innerArmsLength, 0),
+      new setOuterLength(m_outerArmsLength, 0),
+      new setInnerAngle(m_innerArmsAngle, 0),
+      new setOuterAngle(m_outerArmsAngle, 5)));
   }
 }
+

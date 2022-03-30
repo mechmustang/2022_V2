@@ -23,7 +23,7 @@ public class innerArmsLength extends SubsystemBase {
     
     m_lengthMotor = new CANSparkMax(k_innerArms.lengthCanID, MotorType.kBrushless);
     m_lengthMotor.setInverted(k_innerArms.lMotorReversed);
-    m_lengthMotor.setSmartCurrentLimit(40, 20, 0);
+    m_lengthMotor.setSmartCurrentLimit(30, 20, 0);
   
     m_lengthPID = m_lengthMotor.getPIDController();
     m_lengthEncoder = m_lengthMotor.getEncoder();
@@ -34,6 +34,8 @@ public class innerArmsLength extends SubsystemBase {
     m_lengthPID.setFF(k_innerArms.lkFF);
     m_lengthPID.setOutputRange(k_innerArms.lkMinOutput, k_innerArms.lkMaxOutput);
     m_lengthPID.setP(k_innerArms.lkP);
+    m_lengthPID.setSmartMotionMaxVelocity(8000, 0);
+    m_lengthPID.setSmartMotionMaxAccel(2000, 0);
 
     m_lengthMotor.burnFlash();
 

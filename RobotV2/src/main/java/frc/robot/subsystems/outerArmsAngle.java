@@ -25,6 +25,7 @@ public class outerArmsAngle extends SubsystemBase {
     m_angleMotor.setInverted(k_outerArms.aMotorReversed);
     m_anglePID = m_angleMotor.getPIDController();
     m_angleEncoder = m_angleMotor.getEncoder();
+    m_angleMotor.setSmartCurrentLimit(30, 20, 0);
 
     m_anglePID.setP(k_outerArms.akP);
     m_anglePID.setI(k_outerArms.akI);
@@ -33,6 +34,7 @@ public class outerArmsAngle extends SubsystemBase {
     m_anglePID.setFF(k_outerArms.akFF);
     m_anglePID.setOutputRange(k_outerArms.akMinOutput, k_outerArms.akMaxOutput);
 
+    m_angleMotor.burnFlash();
   }
 
   public void homeArms() {
