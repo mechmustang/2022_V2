@@ -21,10 +21,11 @@ import frc.robot.commands.runLoader;
 import frc.robot.commands.runShooter;
 import frc.robot.commands.shutDownShooting;
 import frc.robot.commands.stopLoader;
-import frc.robot.commands.testArms;
+//import frc.robot.commands.testArms;
 import frc.robot.commands.newArms;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
@@ -89,6 +90,7 @@ public class RobotContainer {
     final JoystickButton trigger = new JoystickButton(m_driveController, 1);
     final JoystickButton xBoxY = new JoystickButton(m_systemController, k_xbox.buttonY);
     final JoystickButton xBoxBack = new JoystickButton(m_systemController, k_xbox.buttonBack);
+    final JoystickButton xBoxStart = new JoystickButton(m_systemController, k_xbox.buttonStart);
 
     xBoxX.whenPressed(new runGrabber(m_grabber));
     xBoxY.whileHeld(new runLoader(m_loader));
@@ -97,7 +99,11 @@ public class RobotContainer {
     xBoxB.whenReleased(new runShooter(m_shooterBack, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM));
     xBoxA.whenPressed(new shutDownShooting(m_shooterBack, m_grabber));
     xBoxBack.whenPressed(new newArms(m_innerArmsAngle, m_innerArmsLength, m_outerArmsAngle, m_outerArmsLength));
-
+    xBoxStart.whenPressed(new InstantCommand(m_innerArmsAngle::resetEncoder, m_innerArmsAngle).andThen(
+      new InstantCommand(m_innerArmsLength::resetEncoder, m_innerArmsLength)).andThen(
+      new InstantCommand(m_outerArmsAngle::resetEncoder, m_outerArmsAngle).andThen(
+      new InstantCommand(m_outerArmsLength::resetEncoder, m_outerArmsLength))));
+      
     trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(1));
     
   }

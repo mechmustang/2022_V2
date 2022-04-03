@@ -28,27 +28,37 @@ public class newArms extends SequentialCommandGroup {
     m_outerArmsAngle = outerArmsAngle;
     m_outerArmsLength = outerArmsLength;
 
-    addCommands(new setInnerAngle(m_innerArmsAngle, 15));
+    addCommands(new setOuterAngle(m_outerArmsAngle, 15));
     addCommands(new ParallelCommandGroup(           // reach up and slightly out with the inner arms
-      new setOuterLength(m_outerArmsLength, 1260),
-      new setInnerLength(m_innerArmsLength, 1000),   
+      new setInnerLength(m_innerArmsLength, 1260),
+      new setOuterLength(m_outerArmsLength, 1000),   
       //new setInnerAngle(m_innerArmsAngle, 0),
-      new setOuterAngle(m_outerArmsAngle, -25)));
-    addCommands(new setInnerAngle(m_innerArmsAngle, -5)); // move inner arms back to hook bar
-    addCommands(new setInnerLength(m_innerArmsLength, 0));  // lift robot with inner and angle outer forward
+      new setInnerAngle(m_innerArmsAngle, -25)));
+    addCommands(new setOuterAngle(m_outerArmsAngle, -5)); // move inner arms back to hook bar
+    addCommands(new setOuterLength(m_outerArmsLength, -90));  // lift robot with inner and angle outer forward
     addCommands(new ParallelCommandGroup(
-      new setOuterAngle(m_outerArmsAngle, -50),
-      new setInnerAngle(m_innerArmsAngle, 10)));
+      new setInnerAngle(m_innerArmsAngle, -60),
+      new setOuterAngle(m_outerArmsAngle, 10)));
     addCommands(new ParallelCommandGroup(           
-      new setInnerLength(m_innerArmsLength, 1000),
-      new setOuterLength(m_outerArmsLength, 500)));
-    addCommands(new setInnerLength(m_innerArmsLength, 250));
+      new setOuterLength(m_outerArmsLength, 800),
+      new setInnerLength(m_innerArmsLength, 600)));
+    addCommands(new setOuterLength(m_outerArmsLength, 0));
     addCommands(new ParallelCommandGroup(
-      new setInnerLength(m_innerArmsLength, 0),
-      new setOuterLength(m_outerArmsLength, 0),
-      new setInnerAngle(m_innerArmsAngle, 0),
-      new setOuterAngle(m_outerArmsAngle, 10))); // trying to make it more level.
-                                                 // was 5 so if it causes problems change it back
+      new setOuterAngle(m_outerArmsAngle, 0), //-25),
+      new setInnerAngle(m_innerArmsAngle, 9)));
+    /*addCommands(new ParallelCommandGroup(
+      new setOuterLength(m_outerArmsLength, 1100),
+      new setInnerLength(m_innerArmsLength, -150)));
+    addCommands(new ParallelCommandGroup(
+      new setOuterAngle(m_outerArmsAngle, -60),
+      new setInnerAngle(m_innerArmsAngle, 20)));
+    addCommands(new ParallelCommandGroup(           
+      new setInnerLength(m_innerArmsLength, 1050),
+      new setOuterLength(m_outerArmsLength, 500)));
+    addCommands(new setInnerLength(m_innerArmsLength, 100));
+    addCommands(new setInnerAngle(m_innerArmsAngle, 0));
+    addCommands(new setOuterAngle(m_outerArmsAngle, 0)); */
+
   }
 }
 

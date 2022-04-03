@@ -58,6 +58,14 @@ public class outerArmsLength extends SubsystemBase {
     SmartDashboard.putNumber("Outer Length", m_lengthEncoder.getPosition());
   }
 
+  public void resetEncoder() {
+    m_lengthEncoder.setPosition(0);
+  }
+
+  public void halt() {
+    m_lengthMotor.stopMotor();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

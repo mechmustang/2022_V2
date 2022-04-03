@@ -31,12 +31,18 @@ public class autoCommand extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     //addCommands(new driveStraight(0.2, 1, m_drive));
-    addCommands(new autoRunShooter(1.0, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM, m_shooter));
-    addCommands(new autoRunLoader(2.0, m_loader));
     addCommands(new ParallelCommandGroup(
-      new autoRunShooter(0.5, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM, m_shooter),
+      new autoRunShooter(1.5, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM, m_shooter),
       new autoRunGrabber(m_grabber)));
+    addCommands(new autoRunLoader(2.0, m_loader));
+    addCommands(new autoRunShooter(0.5, k_shooter.frontIdleSpeedRPM, k_shooter.backIdleSpeedRPM, shooter));
     addCommands(new driveStraight(-0.5, 4, m_drive));
+    addCommands(new driveStraight(0, 0.1, m_drive));
+    addCommands(new driveStraight(0.5, 4, m_drive));
+    addCommands(new autoRunShooter(1.5, k_shooter.frontShooterSpeedRPM, k_shooter.backShooterSpeedRPM, m_shooter));
+    addCommands(new autoRunLoader(2.0, m_loader));
+    addCommands(new driveStraight(-0.5, 3.5, m_drive));
+
 
   }
 }

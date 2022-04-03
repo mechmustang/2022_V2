@@ -56,6 +56,14 @@ public class outerArmsAngle extends SubsystemBase {
     SmartDashboard.putNumber("Outer Angle", m_angleEncoder.getPosition());
   }
 
+  public void resetEncoder() {
+    m_angleEncoder.setPosition(0);
+  }
+
+  public void halt() {
+    m_angleMotor.stopMotor();
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
