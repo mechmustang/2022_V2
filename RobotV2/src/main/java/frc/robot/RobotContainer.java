@@ -104,7 +104,9 @@ public class RobotContainer {
       new InstantCommand(m_outerArmsAngle::resetEncoder, m_outerArmsAngle).andThen(
       new InstantCommand(m_outerArmsLength::resetEncoder, m_outerArmsLength))));
       
-    trigger.whenPressed(() -> m_chassis.setMaxOutput(0.5)).whenReleased(() -> m_chassis.setMaxOutput(1));
+    trigger
+      .whenPressed(() -> m_chassis.setMaxOutput(0.5))
+      .whenReleased(() -> m_chassis.setMaxOutput(1));
     
   }
 
